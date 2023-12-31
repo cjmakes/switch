@@ -5,6 +5,9 @@ OBJS+=blink.v
 
 all: ${TARGET}.bit
 
+obj_dir/Vmac: mac_tb.cpp mac.v 
+	verilator --cc --exe --build --trace -j 0 $^
+
 $(TARGET).json: $(OBJS)
 	yosys -p "synth_ecp5 -json $@" $(OBJS)
 

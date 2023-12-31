@@ -32,6 +32,9 @@
             yosys
 	    nextpnr
 	    trellis # provides ecppack
+
+	    verilator
+	    gtkwave
           ];
         };
       });
