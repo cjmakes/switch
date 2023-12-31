@@ -29,6 +29,7 @@ VM_CLASSES_FAST += \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
+	Vmac__ConstPool_0 \
 	Vmac___024root__Slow \
 	Vmac___024root__DepSet_h8dd4521f__0__Slow \
 	Vmac___024root__DepSet_h73b4dc85__0__Slow \

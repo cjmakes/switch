@@ -24,30 +24,16 @@ VL_ATTR_COLD void Vmac___024root___eval_static__TOP(Vmac___024root* vlSelf) {
     Vmac__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vmac___024root___eval_static__TOP\n"); );
     // Body
+    vlSelf->mac__DOT__state = 0U;
     vlSelf->mac__DOT__count = 0U;
 }
-
-VL_ATTR_COLD void Vmac___024root___eval_initial__TOP(Vmac___024root* vlSelf);
 
 VL_ATTR_COLD void Vmac___024root___eval_initial(Vmac___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vmac__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vmac___024root___eval_initial\n"); );
     // Body
-    Vmac___024root___eval_initial__TOP(vlSelf);
-    vlSelf->__Vm_traceActivity[1U] = 1U;
-    vlSelf->__Vm_traceActivity[0U] = 1U;
     vlSelf->__Vtrigprevexpr___TOP__clk__0 = vlSelf->clk;
-}
-
-VL_ATTR_COLD void Vmac___024root___eval_initial__TOP(Vmac___024root* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    Vmac__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vmac___024root___eval_initial__TOP\n"); );
-    // Body
-    vlSelf->mac__DOT__state = 0U;
-    vlSelf->mac__DOT__tx_reg = 0U;
-    vlSelf->tx_en = 1U;
 }
 
 VL_ATTR_COLD void Vmac___024root___eval_final(Vmac___024root* vlSelf) {
@@ -104,12 +90,29 @@ VL_ATTR_COLD void Vmac___024root___dump_triggers__stl(Vmac___024root* vlSelf) {
 }
 #endif  // VL_DEBUG
 
+extern const VlUnpacked<CData/*1:0*/, 1024> Vmac__ConstPool__TABLE_h5db3e585_0;
+
 VL_ATTR_COLD void Vmac___024root___stl_sequent__TOP__0(Vmac___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vmac__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vmac___024root___stl_sequent__TOP__0\n"); );
+    // Init
+    SData/*9:0*/ __Vtableidx1;
+    __Vtableidx1 = 0;
     // Body
-    vlSelf->tx_data = vlSelf->mac__DOT__tx_reg;
+    vlSelf->tx_data = ((2U & (IData)(vlSelf->mac__DOT__state))
+                        ? ((1U & (IData)(vlSelf->mac__DOT__state))
+                            ? (3U & (0xcaU >> (7U & 
+                                               (((IData)(7U) 
+                                                 - 
+                                                 ((IData)(vlSelf->mac__DOT__count) 
+                                                  << 1U)) 
+                                                - (IData)(1U)))))
+                            : 3U) : 1U);
+    __Vtableidx1 = (((IData)(vlSelf->mac__DOT__count) 
+                     << 2U) | (IData)(vlSelf->mac__DOT__state));
+    vlSelf->mac__DOT__next_state = Vmac__ConstPool__TABLE_h5db3e585_0
+        [__Vtableidx1];
 }
 
 VL_ATTR_COLD void Vmac___024root___eval_stl(Vmac___024root* vlSelf) {
@@ -119,6 +122,8 @@ VL_ATTR_COLD void Vmac___024root___eval_stl(Vmac___024root* vlSelf) {
     // Body
     if ((1ULL & vlSelf->__VstlTriggered.word(0U))) {
         Vmac___024root___stl_sequent__TOP__0(vlSelf);
+        vlSelf->__Vm_traceActivity[1U] = 1U;
+        vlSelf->__Vm_traceActivity[0U] = 1U;
     }
 }
 
@@ -166,7 +171,6 @@ VL_ATTR_COLD void Vmac___024root___ctor_var_reset(Vmac___024root* vlSelf) {
     vlSelf->mac__DOT__state = VL_RAND_RESET_I(2);
     vlSelf->mac__DOT__next_state = VL_RAND_RESET_I(2);
     vlSelf->mac__DOT__count = VL_RAND_RESET_I(8);
-    vlSelf->mac__DOT__tx_reg = VL_RAND_RESET_I(2);
     vlSelf->__Vtrigprevexpr___TOP__clk__0 = VL_RAND_RESET_I(1);
     for (int __Vi0 = 0; __Vi0 < 2; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = 0;

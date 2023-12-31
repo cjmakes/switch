@@ -27,14 +27,13 @@ void Vmac___024root__trace_chg_sub_0(Vmac___024root* vlSelf, VerilatedVcd::Buffe
         bufp->chgCData(oldp+0,(vlSelf->mac__DOT__state),2);
         bufp->chgCData(oldp+1,(vlSelf->mac__DOT__next_state),2);
         bufp->chgCData(oldp+2,(vlSelf->mac__DOT__count),8);
-        bufp->chgCData(oldp+3,(vlSelf->mac__DOT__tx_reg),2);
     }
-    bufp->chgBit(oldp+4,(vlSelf->clk));
-    bufp->chgBit(oldp+5,(vlSelf->crs_dv));
-    bufp->chgCData(oldp+6,(vlSelf->rx_data),2);
-    bufp->chgBit(oldp+7,(vlSelf->tx_en));
-    bufp->chgCData(oldp+8,(vlSelf->tx_data),2);
-    bufp->chgBit(oldp+9,(vlSelf->rx_err));
+    bufp->chgBit(oldp+3,(vlSelf->clk));
+    bufp->chgBit(oldp+4,(vlSelf->crs_dv));
+    bufp->chgCData(oldp+5,(vlSelf->rx_data),2);
+    bufp->chgBit(oldp+6,(vlSelf->tx_en));
+    bufp->chgCData(oldp+7,(vlSelf->tx_data),2);
+    bufp->chgBit(oldp+8,(vlSelf->rx_err));
 }
 
 void Vmac___024root__trace_cleanup(void* voidSelf, VerilatedVcd* /*unused*/) {

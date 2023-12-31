@@ -13,54 +13,35 @@ void Vmac___024root___eval_act(Vmac___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vmac___024root___eval_act\n"); );
 }
 
+extern const VlUnpacked<CData/*1:0*/, 1024> Vmac__ConstPool__TABLE_h5db3e585_0;
+
 VL_INLINE_OPT void Vmac___024root___nba_sequent__TOP__0(Vmac___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vmac__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vmac___024root___nba_sequent__TOP__0\n"); );
+    // Init
+    SData/*9:0*/ __Vtableidx1;
+    __Vtableidx1 = 0;
     // Body
-    if ((2U & (IData)(vlSelf->mac__DOT__state))) {
-        if ((1U & (IData)(vlSelf->mac__DOT__state))) {
-            vlSelf->mac__DOT__tx_reg = (3U & (0x33U 
-                                              >> (7U 
-                                                  & ((IData)(vlSelf->mac__DOT__count) 
-                                                     << 1U))));
-            if ((4U == (IData)(vlSelf->mac__DOT__count))) {
-                vlSelf->mac__DOT__next_state = 0U;
-                vlSelf->mac__DOT__count = 0U;
-            } else {
-                vlSelf->mac__DOT__count = (0xffU & 
-                                           ((IData)(1U) 
-                                            + (IData)(vlSelf->mac__DOT__count)));
-                vlSelf->mac__DOT__next_state = 3U;
-            }
-        } else {
-            vlSelf->mac__DOT__tx_reg = 3U;
-            vlSelf->mac__DOT__next_state = 3U;
-            vlSelf->mac__DOT__count = 0U;
-        }
-    } else if ((1U & (IData)(vlSelf->mac__DOT__state))) {
-        vlSelf->mac__DOT__tx_reg = 1U;
-        if ((6U == (IData)(vlSelf->mac__DOT__count))) {
-            vlSelf->mac__DOT__next_state = 2U;
-            vlSelf->mac__DOT__count = 0U;
-        } else {
-            vlSelf->mac__DOT__count = (0xffU & ((IData)(1U) 
-                                                + (IData)(vlSelf->mac__DOT__count)));
-            vlSelf->mac__DOT__next_state = 1U;
-        }
-    } else {
-        vlSelf->mac__DOT__tx_reg = 1U;
-        if ((0x38U == (IData)(vlSelf->mac__DOT__count))) {
-            vlSelf->mac__DOT__next_state = 1U;
-            vlSelf->mac__DOT__count = 0U;
-        } else {
-            vlSelf->mac__DOT__count = (0xffU & ((IData)(1U) 
-                                                + (IData)(vlSelf->mac__DOT__count)));
-            vlSelf->mac__DOT__next_state = 0U;
-        }
-    }
-    vlSelf->tx_data = vlSelf->mac__DOT__tx_reg;
+    vlSelf->mac__DOT__count = (((IData)(vlSelf->mac__DOT__state) 
+                                == (IData)(vlSelf->mac__DOT__next_state))
+                                ? (0xffU & ((IData)(1U) 
+                                            + (IData)(vlSelf->mac__DOT__count)))
+                                : 0U);
     vlSelf->mac__DOT__state = vlSelf->mac__DOT__next_state;
+    vlSelf->tx_data = ((2U & (IData)(vlSelf->mac__DOT__state))
+                        ? ((1U & (IData)(vlSelf->mac__DOT__state))
+                            ? (3U & (0xcaU >> (7U & 
+                                               (((IData)(7U) 
+                                                 - 
+                                                 ((IData)(vlSelf->mac__DOT__count) 
+                                                  << 1U)) 
+                                                - (IData)(1U)))))
+                            : 3U) : 1U);
+    __Vtableidx1 = (((IData)(vlSelf->mac__DOT__count) 
+                     << 2U) | (IData)(vlSelf->mac__DOT__state));
+    vlSelf->mac__DOT__next_state = Vmac__ConstPool__TABLE_h5db3e585_0
+        [__Vtableidx1];
 }
 
 void Vmac___024root___eval_nba(Vmac___024root* vlSelf) {

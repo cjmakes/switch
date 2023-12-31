@@ -4,6 +4,7 @@
 #include "Vmac___024root__DepSet_h8dd4521f__0.cpp"
 #include "Vmac___024root__DepSet_h73b4dc85__0.cpp"
 #include "Vmac__Trace__0.cpp"
+#include "Vmac__ConstPool_0.cpp"
 #include "Vmac___024root__Slow.cpp"
 #include "Vmac___024root__DepSet_h8dd4521f__0__Slow.cpp"
 #include "Vmac___024root__DepSet_h73b4dc85__0__Slow.cpp"

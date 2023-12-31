@@ -11,24 +11,23 @@ VL_ATTR_COLD void Vmac___024root__trace_init_sub__TOP__0(Vmac___024root* vlSelf,
     // Init
     const int c = vlSymsp->__Vm_baseCode;
     // Body
-    tracep->declBit(c+5,"clk", false,-1);
-    tracep->declBit(c+6,"crs_dv", false,-1);
-    tracep->declBus(c+7,"rx_data", false,-1, 1,0);
-    tracep->declBit(c+8,"tx_en", false,-1);
-    tracep->declBus(c+9,"tx_data", false,-1, 1,0);
-    tracep->declBit(c+10,"rx_err", false,-1);
+    tracep->declBit(c+4,"clk", false,-1);
+    tracep->declBit(c+5,"crs_dv", false,-1);
+    tracep->declBus(c+6,"rx_data", false,-1, 1,0);
+    tracep->declBit(c+7,"tx_en", false,-1);
+    tracep->declBus(c+8,"tx_data", false,-1, 1,0);
+    tracep->declBit(c+9,"rx_err", false,-1);
     tracep->pushNamePrefix("mac ");
-    tracep->declBit(c+5,"clk", false,-1);
-    tracep->declBit(c+6,"crs_dv", false,-1);
-    tracep->declBus(c+7,"rx_data", false,-1, 1,0);
-    tracep->declBit(c+8,"tx_en", false,-1);
-    tracep->declBus(c+9,"tx_data", false,-1, 1,0);
-    tracep->declBit(c+10,"rx_err", false,-1);
+    tracep->declBit(c+4,"clk", false,-1);
+    tracep->declBit(c+5,"crs_dv", false,-1);
+    tracep->declBus(c+6,"rx_data", false,-1, 1,0);
+    tracep->declBit(c+7,"tx_en", false,-1);
+    tracep->declBus(c+8,"tx_data", false,-1, 1,0);
+    tracep->declBit(c+9,"rx_err", false,-1);
     tracep->declBus(c+1,"state", false,-1, 1,0);
     tracep->declBus(c+2,"next_state", false,-1, 1,0);
     tracep->declBus(c+3,"count", false,-1, 7,0);
-    tracep->declBus(c+11,"data", false,-1, 7,0);
-    tracep->declBus(c+4,"tx_reg", false,-1, 1,0);
+    tracep->declBus(c+10,"data", false,-1, 7,0);
     tracep->popNamePrefix(1);
 }
 
@@ -75,12 +74,11 @@ VL_ATTR_COLD void Vmac___024root__trace_full_sub_0(Vmac___024root* vlSelf, Veril
     bufp->fullCData(oldp+1,(vlSelf->mac__DOT__state),2);
     bufp->fullCData(oldp+2,(vlSelf->mac__DOT__next_state),2);
     bufp->fullCData(oldp+3,(vlSelf->mac__DOT__count),8);
-    bufp->fullCData(oldp+4,(vlSelf->mac__DOT__tx_reg),2);
-    bufp->fullBit(oldp+5,(vlSelf->clk));
-    bufp->fullBit(oldp+6,(vlSelf->crs_dv));
-    bufp->fullCData(oldp+7,(vlSelf->rx_data),2);
-    bufp->fullBit(oldp+8,(vlSelf->tx_en));
-    bufp->fullCData(oldp+9,(vlSelf->tx_data),2);
-    bufp->fullBit(oldp+10,(vlSelf->rx_err));
-    bufp->fullCData(oldp+11,(0x33U),8);
+    bufp->fullBit(oldp+4,(vlSelf->clk));
+    bufp->fullBit(oldp+5,(vlSelf->crs_dv));
+    bufp->fullCData(oldp+6,(vlSelf->rx_data),2);
+    bufp->fullBit(oldp+7,(vlSelf->tx_en));
+    bufp->fullCData(oldp+8,(vlSelf->tx_data),2);
+    bufp->fullBit(oldp+9,(vlSelf->rx_err));
+    bufp->fullCData(oldp+10,(0xcaU),8);
 }
