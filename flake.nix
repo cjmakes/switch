@@ -32,6 +32,8 @@
             yosys
 	    nextpnr
 	    trellis # provides ecppack
+	    ecpdap
+	    openfpgaloader
 
 	    verilator
 	    gtkwave

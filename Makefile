@@ -1,28 +1,27 @@
-TARGET=blink
-TOP=blink
+TARGET=main
+TOP=main
+OBJS+=main.v
 
-OBJS+=blink.v
+all: ${TARGET}.bin
 
-all: ${TARGET}.bit
-
-obj_dir/Vmac: mac_tb.cpp mac.v 
+obj_dir/Vmac: mac_tb.cpp mac.v mak
 	verilator --cc --exe --build --trace -j 0 $^
 
 $(TARGET).json: $(OBJS)
-	yosys -p "synth_ecp5 -json $@" $(OBJS)
+	yosys -p "read_verilog -sv $(OBJS); synth_ecp5 -json $@ -top $(TOP)"
 
-$(TARGET)_out.config: $(TARGET).json
-	nextpnr-ecp5 --25k --package CABGA256 --speed 6 --json $< --textcfg $@ --lpf $(TARGET).lpf --freq 65
+$(TARGET).config: $(TARGET).json $(TARGET).lpf
+	nextpnr-ecp5 --25k --package CABGA256 --json $< --lpf $(TARGET).lpf --textcfg $@ --freq 100
 
-$(TARGET).bit: $(TARGET)_out.config
-	ecppack --svf ${TARGET}.svf $< $@
+$(TARGET).bin: $(TARGET).config
+	ecppack --compress --bit $@ $<
 
-${TARGET}.svf : ${TARGET}.bit
+.PHONY: prog
+prog: ${TARGET}.bin
+	ecpdap program --freq 5000 main.bin
+	ecpdap flash unprotect
+	ecpdap flash write --freq 5000 main.bin
 
-prog: ${TARGET}.svf
-	openFPGALoader -c digilent_hs2 $(TARGET).bit
-
+.PHONY: clean
 clean:
-	rm -f *.svf *.bit *.config *.ys *.json
-
-.PHONY: prog clean
+	rm -f *.json *.config *.bin
